@@ -1,0 +1,173 @@
+#databaseChangeLog:
+#- changeSet:
+#    id: 1634375644952-1
+#    author: user (generated)
+#    changes:
+#    - createTable:
+#        columns:
+#        - column:
+#            constraints:
+#              nullable: false
+#            name: chat_id
+#            type: INTEGER
+#        - column:
+#            constraints:
+#              nullable: false
+#            name: users_id
+#            type: INTEGER
+#        tableName: chat_users
+#- changeSet:
+#    id: 1634375644952-2
+#    author: user (generated)
+#    changes:
+#    - createTable:
+#        columns:
+#        - column:
+#            autoIncrement: true
+#            constraints:
+#              nullable: false
+#              primaryKey: true
+#              primaryKeyName: users_pkey
+#            name: id
+#            type: INTEGER
+#        - column:
+#            name: created_at
+#            type: TIMESTAMP WITHOUT TIME ZONE
+#        - column:
+#            name: user_id
+#            type: INTEGER
+#        - column:
+#            name: username
+#            type: VARCHAR(255)
+#        tableName: users
+#- changeSet:
+#    id: 1634375644952-3
+#    author: user (generated)
+#    changes:
+#    - createTable:
+#        columns:
+#        - column:
+#            autoIncrement: true
+#            constraints:
+#              nullable: false
+#              primaryKey: true
+#              primaryKeyName: chat_pkey
+#            name: id
+#            type: INTEGER
+#        - column:
+#            name: chat_id
+#            type: INTEGER
+#        - column:
+#            name: created_at
+#            type: TIMESTAMP WITHOUT TIME ZONE
+#        - column:
+#            name: name
+#            type: VARCHAR(255)
+#        tableName: chat
+#- changeSet:
+#    id: 1634375644952-4
+#    author: user (generated)
+#    changes:
+#    - createTable:
+#        columns:
+#        - column:
+#            autoIncrement: true
+#            constraints:
+#              nullable: false
+#              primaryKey: true
+#              primaryKeyName: message_pkey
+#            name: id
+#            type: INTEGER
+#        - column:
+#            name: created_at
+#            type: TIMESTAMP WITHOUT TIME ZONE
+#        - column:
+#            name: message_id
+#            type: INTEGER
+#        - column:
+#            name: text
+#            type: VARCHAR(255)
+#        - column:
+#            name: author_id
+#            type: INTEGER
+#        - column:
+#            name: chat_id
+#            type: INTEGER
+#        tableName: message
+#- changeSet:
+#    id: 1634375644952-5
+#    author: user (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: users_id
+#        baseTableName: chat_users
+#        constraintName: fkchyf3h9uvw98r0hv6t5850q1n
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: NO ACTION
+#        onUpdate: NO ACTION
+#        referencedColumnNames: id
+#        referencedTableName: users
+#        validate: true
+#- changeSet:
+#    id: 1634375644952-6
+#    author: user (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: chat_id
+#        baseTableName: chat_users
+#        constraintName: fkglok2i2m8cbulbt5xxmfqixw3
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: NO ACTION
+#        onUpdate: NO ACTION
+#        referencedColumnNames: id
+#        referencedTableName: chat
+#        validate: true
+#- changeSet:
+#    id: 1634375644952-7
+#    author: user (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: author_id
+#        baseTableName: message
+#        constraintName: fklqr4fixlintqc9di9s3u665r4
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: NO ACTION
+#        onUpdate: NO ACTION
+#        referencedColumnNames: id
+#        referencedTableName: users
+#        validate: true
+#- changeSet:
+#    id: 1634375644952-8
+#    author: user (generated)
+#    changes:
+#    - addUniqueConstraint:
+#        columnNames: username
+#        constraintName: uk_r43af9ap4edm43mmtq01oddj6
+#        tableName: users
+#- changeSet:
+#    id: 1634375644952-9
+#    author: user (generated)
+#    changes:
+#    - addForeignKeyConstraint:
+#        baseColumnNames: chat_id
+#        baseTableName: message
+#        constraintName: fkmejd0ykokrbuekwwgd5a5xt8a
+#        deferrable: false
+#        initiallyDeferred: false
+#        onDelete: NO ACTION
+#        onUpdate: NO ACTION
+#        referencedColumnNames: id
+#        referencedTableName: chat
+#        validate: true
+#- changeSet:
+#    id: 1634375644952-10
+#    author: user (generated)
+#    changes:
+#    - addUniqueConstraint:
+#        columnNames: name
+#        constraintName: uk_dk0m5eenxaf7wywks6mj0381x
+#        tableName: chat
+#
